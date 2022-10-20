@@ -1,13 +1,12 @@
 import pygame
 from support import import_folder
-
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,surface,create_jump_particles):
         super().__init__()
         self.import_character_assets()
         self.frame_index = 0
         self.animation_speed = 0.2
-        self.image = self.animations['idle'][self.frame_index]
+        self.image = self.animations['idle'][self.frame_index].convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
 
         # particles
@@ -32,7 +31,7 @@ class Player(pygame.sprite.Sprite):
         self.on_right = False
 
     def import_character_assets(self):
-        character_path = 'assets/sprites/character/'
+        character_path = ('assets/sprites/character/')
         self.animations = {'idle':[],'run':[],'jump':[],'fall':[]}
 
         for animation in self.animations.keys():

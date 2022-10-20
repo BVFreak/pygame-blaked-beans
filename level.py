@@ -24,7 +24,7 @@ class Level:
         else:
             pos += pygame.math.Vector2(0,-10)
         jump_particle_sprite = ParticleEffect(pos,'jump')
-        self.dust_sprite .add(jump_particle_sprite)
+        self.dust_sprite.add(jump_particle_sprite)
 
     def get_player_on_ground(self):
         if self.player.sprite.on_ground:
