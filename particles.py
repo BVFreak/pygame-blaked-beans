@@ -1,6 +1,9 @@
 import pygame
 from support import import_folder
 
+pygame.mixer.init()
+
+
 class ParticleEffect(pygame.sprite.Sprite):
     def __init__(self,pos,type):
         super().__init__()
@@ -11,6 +14,8 @@ class ParticleEffect(pygame.sprite.Sprite):
             self.image = self.frames[self.frame_index]
             self.rect = self.image.get_rect(center = pos)
         if type == 'land':
+            land_audio = pygame.mixer.music.load("assets/audio/land.wav")
+            pygame.mixer.music.play()
             self.frames = import_folder('assets/sprites/character/dust_particles/land')
             self.image = self.frames[self.frame_index]
             self.rect = self.image.get_rect(center = pos)

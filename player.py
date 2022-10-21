@@ -1,5 +1,8 @@
 import pygame
 from support import import_folder
+
+pygame.mixer.init()
+
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,surface,create_jump_particles):
         super().__init__()
@@ -120,6 +123,8 @@ class Player(pygame.sprite.Sprite):
 
     def jump(self):
         self.direction.y = self.jump_speed
+        jump_audio = pygame.mixer.music.load("assets/audio/jump.wav")
+        pygame.mixer.music.play()
 
     def update(self):
         self.get_input()

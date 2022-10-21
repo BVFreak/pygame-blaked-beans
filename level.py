@@ -1,4 +1,4 @@
-import pygame
+import pygame, math
 from particles import ParticleEffect
 from tiles import Tile
 from settings import tile_size
